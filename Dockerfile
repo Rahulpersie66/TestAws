@@ -1,4 +1,6 @@
-FROM openjdk:11 
-LABEL maintainer="AWS Rahul"
-ADD ./target/Test-springBoot-0.0.1-SNAPSHOT.jar springboot-docker-demo.jar
-ENTRYPOINT ["java","-jar","springboot-docker-demo.jar" ]
+FROM adoptopenjdk/openjdk15:ubi
+ENV APP_HOME=/usr/app/
+WORKDIR $APP_HOME
+COPY build/libs/*.jar app.jar
+EXPOSE 8080
+CMD [“java”, “-jar”, “app.jar”]
