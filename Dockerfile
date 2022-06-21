@@ -1,8 +1,4 @@
 FROM java
-WORKDIR /home
-
-RUN git clone https://github.com/Rahulpersie66/TestAws.git
-RUN chmod -R 777 TestAws
 
 WORKDIR /home/TestAws
 
